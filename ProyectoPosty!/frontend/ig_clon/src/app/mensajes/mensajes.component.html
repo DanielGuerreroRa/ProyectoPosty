@@ -1,0 +1,92 @@
+<section>
+  <aside>
+    <header class="my-user">
+      <h3>mi_nombre_usuario</h3>
+      <ng-icon name="ionAddCircleOutline" size="22px"></ng-icon>
+    </header>
+    <ul>
+      @for (item of listaUsuarios$; track item.idUsuario) {
+
+      <li
+        class="usr-container"
+        (click)="obtenerMensajesUsuario(item.idUsuario)"
+      >
+        <picture class="info-usuario">
+          <img
+            class="foto-perfil"
+            [src]="item.fotoPerfil"
+            [alt]="item.nombreUsuario"
+          />
+          <div>
+            <p class="nombre-usuario">{{ item.nombreUsuario }}</p>
+            <p class="last-msg">ultimo mensaje</p>
+          </div>
+        </picture>
+      </li>
+      }
+    </ul>
+  </aside>
+  <main>
+    <header>
+      @if (usuarioDestino$) {
+      <picture class="info-usuario">
+        <img
+          class="foto-perfil"
+          [src]="usuarioDestino$.fotoPerfil"
+          [alt]="usuarioDestino$.nombreUsuario"
+        />
+        <div>
+          <p class="nombre-usuario">{{ usuarioDestino$.nombreUsuario }}</p>
+          <p class="last-msg">Ultima vez 2h ago</p>
+        </div>
+      </picture>
+
+      }
+    </header>
+    <div>
+      <div class="msj-list-container">
+        <ul>
+          @for (item of mensajesActuales; track item.idMensaje) {
+          @if(item.nombreUsuarioOrigen !== usuarioActual.nombreUsuario) {
+          <li>
+            <span class="msj-recibido">{{ item.contenido }}</span>
+          </li>
+          } @if (item.nombreUsuarioOrigen == usuarioActual.nombreUsuario) {
+          <li class="msj-enviado">{{ item.contenido }}</li>
+          } }
+        </ul>
+      </div>
+      <div class="msj-container">
+        <div class="emoji-container">
+          @if (emojiPickerOpen) {
+          <emoji-mart
+            title="Pick your emoji…"
+            emoji="point_up"
+            (emojiClick)="addEmoji($event)"
+            [darkMode]="false"
+            [style]="{ width: '305px' }"
+          ></emoji-mart>
+          }
+          <ng-icon
+            name="ionHappyOutline"
+            size="24px"
+            (click)="abrirEmojiPicker()"
+          ></ng-icon>
+        </div>
+        <input
+          type="text"
+          placeholder="Mensaje..."
+          id="mensaje"
+          name="mensaje"
+          [(ngModel)]="mensaje"
+          (keydown.enter)="enviarMensaje()"
+        />
+        <ng-icon
+          name="ionChatboxEllipsesOutline"
+          size="24px"
+          (click)="enviarMensaje()"
+        ></ng-icon>
+      </div>
+    </div>
+  </main>
+</section>

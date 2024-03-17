@@ -1,0 +1,60 @@
+<div class="modal">
+  <div class="modal-content">
+    <div class="post-modal">
+      @if (publicacionActual) {
+      <picture
+        class="post-content"
+        [style.background-image]="
+          'url(' + publicacionActual.rutaContenido + ')'
+        "
+      >
+      </picture>
+      }
+      <article class="comentarios">
+        <header>
+          <picture class="info-user">
+            <img
+              height="66"
+              width="66"
+              class="icono-historia"
+              [src]="
+                'https://picsum.photos/id/' +
+                publicacionActual?.idPublicacion +
+                '/640/640/'
+              "
+            />
+            <p>{{ publicacionActual?.usuario?.nombreUsuario }}</p>
+            <span class="close" (click)="close()">&times;</span>
+          </picture>
+          <ul class="lista-comentarios">
+            <li class="descripcion">{{ publicacionActual?.descripcion }}</li>
+            @for (c of publicacionActual?.comentarios; track c.idPublicacion) {
+            <li class="comentario">
+              <div class="titulo-comentario">
+                <img
+                  [src]="c.usuario.fotoPerfil"
+                  [alt]="c.usuario.nombreUsuario"
+                  class="avatar-usuario"
+                />
+                <div>
+                  <p class="usr-comentario">{{ c.usuario.nombreUsuario }}</p>
+                  <p class="date-mensaje">
+                    {{ c.fCreacion }} - {{ c.hCreacion }}
+                  </p>
+                </div>
+              </div>
+              <div class="mensaje">
+                <p class="contenido-mensaje">{{ c.mensajes }}</p>
+              </div>
+            </li>
+            }
+          </ul>
+        </header>
+        <form class="post-comentario">
+          <input type="text" placeholder="Añade un comentario" name="post-comentario" id="post-comentario" (keydown.enter)="subirComentario(publicacionActual?.idPublicacion || 0)" [(ngModel)]="comentario.mensaje">
+          <ng-icon name="ionAddCircleOutline" size="24px" (click)="subirComentario(publicacionActual?.idPublicacion || 0)"></ng-icon>
+        </form>
+      </article>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="modal">
+  <div class="modal-content">
+    <div class="publicar-modal">
+      <span class="close" (click)="close()">&times;</span>
+      <label for="descripcion">Cuenta tu historia!</label>
+      <textarea
+        type="text"
+        name="descripcion"
+        id="descripcion"
+        cols="6"
+        rows="6"
+        placeholder="Sin miedo, cuenta tus aventuras"
+        [(ngModel)]="publicacionActual.descripcion"
+        required
+      ></textarea>
+      <label for="rutaContenido">Comparte una foto</label>
+      <!-- <input type="file" name="rutaContenido" id="rutaContenido" accept="image/png, image/jpeg" [(ngModel)]="publicacionActual.rutaContenido" required> -->
+      <input
+        type="file"
+        name="rutaContenido"
+        id="rutaContenido"
+        accept="image/png, image/jpeg"
+        (change)="onFileChange($event)"
+        required
+      />
+      @if (publicacionActual.rutaContenido.length > 0) {
+      <div class="imagen-postear">
+        <img
+          [src]="publicacionActual.rutaContenido"
+          [alt]="publicacionActual.rutaContenido"
+        />
+        <span class="close" (click)="removerFoto()">&times;</span>
+      </div>
+      }
+      <div class="btn-submit">
+        <button (click)="publicar()">Posty it!</button>
+      </div>
+    </div>
+  </div>
+</div>

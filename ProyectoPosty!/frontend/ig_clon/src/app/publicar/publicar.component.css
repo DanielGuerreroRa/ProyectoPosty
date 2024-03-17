@@ -1,0 +1,16 @@
+.post-it{
+    display: grid;
+    place-content: center;
+}
+button{
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: lightblue;
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+button:hover{
+    background-color: darkslateblue;
+    color: #f2f2f2;
+}

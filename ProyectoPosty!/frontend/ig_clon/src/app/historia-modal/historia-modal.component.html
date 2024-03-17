@@ -1,0 +1,44 @@
+<div class="modal">
+  <div class="modal-content">
+    <div
+      class="historia-modal"
+      [style.background-image]="'url(' + imgURL + ')'"
+    >
+      <span class="close" (click)="close()">&times;</span>
+      <header>
+        <div id="timeline" [style.width.%]="timelineWidth"></div>
+        <div class="controls-container">
+          <p>nombre_usuario - 3h</p>
+          <!--HACE CUANTO SE PUBLICO -->
+          @if (!isPaused) {
+          <ng-icon name="ionPause" (click)="pauseBtn()"></ng-icon>
+          }
+          @if (isPaused) {
+            <ng-icon name="ionPlay" (click)="playBtn()"></ng-icon>
+          }
+        </div>
+      </header>
+      <div class="empty-container"></div>
+      <div class="comment-container">
+        <input
+          type="text"
+          placeholder="Envia un comentario"
+          (keydown.enter)="mandarComentario()"
+          (keypress)="pararTemporizador()"
+          [(ngModel)]="comentario"
+          required
+        />
+        <ng-icon
+          name="ionHeartOutline"
+          (click)="mandarCorazon()"
+          size="22px"
+        ></ng-icon>
+        <ng-icon
+          (click)="mandarComentario()"
+          name="ionSendOutline"
+          size="22px"
+        ></ng-icon>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<section>
+  <div class="perfil-container">
+    <img
+      class="avatar"
+      [src]="fotoPerfilActual"
+      alt="foto_de_perfil"
+      width="128px"
+      height="128px"
+    />
+
+    <div class="info">
+      <h2>{{ usuarioActual }}</h2>
+      <button
+        [routerLink]="['/perfil/editar-perfil']"
+        routerLinkActive="router-link-active"
+      >
+        Editar perfil
+      </button>
+    </div>
+  </div>
+  <div class="contenedor-barra-navegacion">
+    <!-- <div class="info">
+      <p>contenedor-publicaciones</p>
+      <p>contenedor-seguidores</p>
+      <p>contenedor-seguidos</p>
+    </div> -->
+    <div class="contenedor-publicaciones">
+      <div class="contenedor-items">
+        @for (item of listaPublicaciones$; track item.idPublicacion) {
+        <div class="item-publicacion">
+          <div class="contenedor-fotos">
+            <div
+              class="foto"
+              [style.background-image]="'url(' + item.rutaContenido + ')'"
+            ></div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

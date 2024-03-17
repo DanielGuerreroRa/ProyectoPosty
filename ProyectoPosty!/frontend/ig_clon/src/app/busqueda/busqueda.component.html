@@ -1,0 +1,22 @@
+<section>
+    <!-- <div class="search-input-container">
+      <mat-icon class="search-icon">search</mat-icon>
+      <input type="search"  class="search-input" placeholder="Buscar">
+    </div> -->
+    <div class="container-img">
+      
+      @for (item of publicaciones; track item.idPublicacion) {
+        
+          <img 
+            class="item-img"
+            [src]="item.rutaContenido"
+            
+            [routerLink]="['/publicaciones']" routerLinkActive="router-link-active" 
+           
+          />    <!--TODO: Ruta probisional hasta que este creada la del publicaciones/id -->
+      }
+    </div>
+   </section>
+
+
+

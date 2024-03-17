@@ -1,0 +1,124 @@
+ng-icon {
+  transition: all 0.2s ease-in;
+  width: 30px;
+}
+ng-icon:hover {
+  color: #d037d0;
+  cursor: pointer;
+}
+.my-user {
+  padding: 1rem 0;
+}
+section {
+  padding: 1rem 0;
+  display: flex;
+  height: 100%;
+  gap: 5px;
+}
+main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.foto-perfil {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+aside {
+  height: 90vh;
+  overflow-y: auto;
+}
+aside header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.last-msg {
+  color: rgba(0, 0, 0, 0.5);
+}
+.nombre-usuario {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+}
+ul li {
+  list-style-type: none;
+  padding: 8px 12px;
+  transition: all 0.2s ease-in;
+}
+li:hover,
+li:active {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+.msj-list-container{
+    overflow-y: scroll;
+    height: 83vh;
+}
+.msj-container {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: #ffa5a5;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.msj-container input {
+  padding: 8px 12px;
+  border: none;
+  width: 100%;
+  outline: none;
+}
+.emoji-container{
+  position: relative;
+}
+emoji-mart{
+  position: absolute;
+  top: -435px;
+}
+.msj-enviado{
+  display: flex;
+  justify-content: flex-end;
+}
+.msj-recibido{
+  border: 1px solid #d037d0;
+  padding: 5px 8px;
+  background-color: #d037d0;
+  color: #f2f2f2;
+  border-radius: 5px;
+}
+main>header{
+  margin-bottom: 10px;
+}
+@media (max-width:769px){
+    section{
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+    aside{
+        height: auto;
+        overflow: hidden;
+        padding: .3rem;
+    }
+    aside ul{
+        display: flex;
+        overflow-x: scroll;
+    }
+    .last-msg{
+        font-size: 10px;
+    }
+    .msj-list-container{
+        height: 60vh;
+    }
+}

@@ -1,0 +1,147 @@
+<section>
+  <div class="contenedor">
+    <header class="barra-historias">
+      <div class="nav-historias">
+        <a href="" class="anchor-historia">Para ti</a>
+        <a href="" class="anchor-historia">Siguiendo</a>
+      </div>
+      <div class="contenedor-historias">
+        @for (item of listaUsuarios$; track item.idUsuario) { @if
+        (historiaAbierta) {
+        <app-historia-modal
+          (cerrar)="cerrarHistoria()"
+          (temporizador)="pararTemporizador()"
+          (pausar)="pauseBtn()"
+          (play)="playBtn()"
+          [timelineWidth]="timeline"
+          [isPaused]="pause"     
+        ></app-historia-modal>
+        }
+        <div class="mini-historia" (click)="abrirHistoria()">
+          <img
+            height="66"
+            width="66"
+            class="icono-historia"
+            [src]="'https://picsum.photos/id/' + item.idUsuario + '/66/66'"
+          />
+          <p>{{ item.nombreUsuario }}</p>
+        </div>
+        }
+        <mat-icon
+          class="mat-clickable"
+          aria-hidden="false"
+          aria-label="Navigate Next icon"
+          fontIcon="navigate_next"
+        ></mat-icon>
+      </div>
+    </header>
+    @for (item of listaPublicaciones$; track item.idPublicacion; let i = $index)
+    { @if (publicacionAbierta) {
+    <app-publicacion-modal
+      (cerrar)="cerrarPublicacion()"
+      [publicacionActual]="publicacionActual"
+    ></app-publicacion-modal>
+    }
+    <article class="post">
+      <header class="post-titulo">
+        <div class="post-info-usuario">
+          <img [src]="item.usuario.fotoPerfil" [alt]="item.usuario.nombreUsuario" />
+          @if(item.usuario){
+          <p>
+            <span class="nombre-usuario"
+              >{{ item.usuario.nombreUsuario }}
+            </span>
+            <!--TODO: ESPACIO RESERVADO PARA EL TIEMPO DE LA PUBLICACIÓN
+               - <span class="post-time">3h</span> -->
+          </p>
+          }
+        </div>
+        <!-- 
+        TODO: Espacio apartado para reportar, bloquear, remover publicación de momento se queda en standby
+         <div>
+          <span class="dotBtn">...</span>
+        </div> -->
+      </header>
+      <!-- TODO: LOGIN IMPLEMENTADO si lo esta añadir la foto de la publicación! -->
+      <div class="post-contenido" [style.background-image]="'url(' + item.rutaContenido + ')'">
+      </div>
+      <div class="post-btns">
+        <div class="post-interactive-btns">
+          <ng-icon
+            (click)="darLike(item.idPublicacion)"
+            name="ionHeartCircleOutline"
+            size="24px"
+          ></ng-icon>
+          <ng-icon
+            (click)="abrirPublicacion(i)"
+            name="ionChatboxEllipsesOutline"
+            size="24px"
+          ></ng-icon>
+         <!--  <ng-icon
+            (click)="compartir(item.idPublicacion)"
+            name="ionShareOutline"
+            size="24px"
+          ></ng-icon> -->
+        </div>
+        <div>
+          <ng-icon
+            (click)="guardarPublicacion(item.idPublicacion)"
+            name="ionBookmarkOutline"
+            size="24px"
+          ></ng-icon>
+        </div>
+      </div>
+      <div class="post-info">
+        <p class="likes">{{item.cantidadLikes}} likes</p>
+        <p class="open-comments" (click)="abrirPublicacion(i)">
+          Abre todos los comentarios - 4 comentarios
+        </p>
+        <div class="post-add-comment">
+          <input
+            type="text"
+            placeholder="Añade un comentario"
+            [(ngModel)]="comentarioActual.mensaje"
+            (keyup.enter)="postComentario(item.idPublicacion)"
+          />
+          <button class="btn-post" (click)="postComentario(item.idPublicacion)">POST</button>
+        </div>
+      </div>
+    </article>
+    }
+  </div>
+  <aside class="sidebar">
+    <div class="sidebar-perfil">
+      <img [src]="usuario.imgPerfil" alt="Foto de perfil de usuario" />
+      <div>
+        <h3>{{ usuario.nombre_usuario }}</h3>
+        <p>{{ usuario.nombre_completo }}</p>
+      </div>
+    </div>
+    <div class="sidebar-sugerencias">
+      <div class="siderbar-btns">
+        <p id="sugerencia">Te sugerimos</p>
+        <a href="" class="show-all">Mostrar todos</a>
+      </div>
+      <ul class="sidebar-sugerencias">
+        @for (item of listaUsuarios$; track item.idUsuario) {
+        <li>
+          <div class="sug-info">
+            <img
+              [src]="'https://picsum.photos/id/' + item.idUsuario + '/60/60'"
+              [alt]="item.nombreUsuario"
+            />
+            <div>
+              <h3>{{ item.nombreUsuario }}</h3>
+              <p>{{ item.nombreUsuario }}</p>
+              <!-- TODO: Añadir nombre completo en lugar de nombreUsuario -->
+              <p class="mini-text">Suggester for you</p>
+            </div>
+          </div>
+          <!-- TODO: FOLLOW DEBE FUNCIONAR -->
+          <a href="#" class="btn-follow">Follow</a>
+        </li>
+        }
+      </ul>
+    </div>
+  </aside>
+</section>

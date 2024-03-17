@@ -1,0 +1,176 @@
+/* publicacion-modal.component.css */
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* animation: fadeIn 150ms ease-in; */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 1rem auto;
+  width: 80%;
+  z-index: 100;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* AFTER MODAL */
+.post-modal {
+  display: flex;
+  width: 100%;
+}
+.post-modal ul {
+  list-style-type: none;
+}
+.post-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  min-height: 80vh;
+  width: 70%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.post-content img {
+  height: fit-content;
+  max-width: 100%;
+  max-height: 100%;
+}
+.comentarios {
+  flex-shrink: 1;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+.lista-comentarios {
+  overflow-y: auto;
+  min-height: 320px;
+  max-height: 550px;
+}
+
+.info-user {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.info-user img {
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+.comentarios li {
+  padding: 1rem;
+  display: grid;
+  gap: 8px;
+}
+.descripcion {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.avatar-usuario {
+  max-width: 32px;
+  border-radius: 50%;
+}
+.mensaje{
+  display: flex;
+}
+.comentario{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #524343;
+}
+.usr-comentario{
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+}
+.titulo-comentario{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.date-mensaje{
+  font-size: 10px;
+}
+#post-comentario{
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  outline: none;
+}
+#post-comentario:focus{
+  border: 1px solid #E22CE2;
+}
+.post-comentario{
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: .3rem;
+}
+ng-icon{
+  cursor: pointer;
+  transition: all .2 ease-in-out;
+  margin: .3rem 0;
+  color: #d037d0;
+}
+ng-icon:hover{
+  opacity: 0.8;
+  scale: 1.1;
+  color: #dbaedb;
+}
+@media (max-width: 767px) {
+  .post-modal {
+    flex-direction: column;
+  }
+  .post-content {
+    width: 100%;
+  }
+  .post-content {
+    min-height: 40vh;
+    width: 100%;
+  }
+  .comentarios {
+    width: 100%;
+  }
+  .lista-comentarios{
+    height: 320px;
+  }
+}

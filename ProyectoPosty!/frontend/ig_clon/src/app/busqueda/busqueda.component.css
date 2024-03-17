@@ -1,0 +1,48 @@
+section{
+  padding: 1rem 0;
+}
+.container-img {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.item-img {
+  width: 290px;
+  height: auto;
+}
+.item-img:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/*BARRA BUSCADOR*/
+.search-input-container {
+  position: relative;
+  display: inline-block;
+  width: 99%;
+  margin-bottom: 10px;
+}
+.search-input-container input {
+  width: 100%;
+}
+
+.search-input {
+  width: calc(100% - 45px);
+  padding: 5px 35px 5px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  right: 1%;
+  top: 55%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: rgb(226, 44, 226);
+}
+@media (max-width: 768px){
+  .container-img{
+    justify-content: center;
+  }
+}

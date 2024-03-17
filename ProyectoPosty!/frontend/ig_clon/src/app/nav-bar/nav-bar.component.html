@@ -1,0 +1,158 @@
+<nav class="nav">
+  <ul class="nav-container">
+    <div class="search-bar">
+      <li>
+        <a [routerLink]="['/']" routerLinkActive="router-link-active">
+          <h1>Posty !</h1>
+          <h2 class="short-title">P</h2>
+        </a>
+      </li>
+      <li id="home-icon">
+        <a [routerLink]="['/inicio']" routerLinkActive="router-link-active">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="home-icon"
+            fontIcon="home"
+          ></mat-icon>
+          <p>Inicio</p>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/mensajes']" routerLinkActive="router-link-active">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="message-icon"
+            fontIcon="message"
+          ></mat-icon>
+          <p>Mensajes</p>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/busqueda']" routerLinkActive="router-link-active">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="search-icon"
+            fontIcon="search"
+          ></mat-icon>
+          <p>Buscar</p>
+        </a>
+      </li>
+      <!--  <li>
+        <a [routerLink]="['/explorar']" routerLinkActive="router-link-active">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="explore-icon"
+            fontIcon="explore"
+          ></mat-icon>
+          <p>Explorar</p>
+        </a>
+      </li> -->
+      <!--  <li>
+        <a [routerLink]="['/reels']" routerLinkActive="router-link-active">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="reels-icon"
+            fontIcon="video_collection"
+          ></mat-icon>
+          <p>Reels</p>
+        </a>
+      </li> -->
+
+      <!--   <li>
+        <a
+          [routerLink]="['/notificaciones']"
+          routerLinkActive="router-link-active"
+        >
+          <mat-icon
+            aria-hidden="false"
+            aria-label="notification-icon"
+            fontIcon="notifications"
+          ></mat-icon>
+          <p>Notificaciones</p>
+        </a>
+      </li> -->
+      <li>
+        <a [routerLink]="['/publicar']" routerLinkActive="router-link-active">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="add-icon"
+            fontIcon="add"
+          ></mat-icon>
+          <p>Publicar</p>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/perfil']" routerLinkActive="router-link-active">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="profile-icon"
+            fontIcon="person"
+          ></mat-icon>
+          <p>Perfil</p>
+        </a>
+      </li>
+    </div>
+    <div>
+      <li class="modal-container">
+        @if (modalOpen) {
+        <div class="modal">
+          <button (click)="cerrarModal()" class="btn-cerrar">
+            <mat-icon
+              aria-hidden="false"
+              aria-label="close-icon"
+              fontIcon="close_icon"
+            ></mat-icon>
+          </button>
+          <ul>
+            <li>
+              <a
+                [routerLink]="['/perfil/editar-perfil']"
+                routerLinkActive="router-link-active"
+                ><mat-icon
+                  aria-hidden="false"
+                  aria-label="settings-icon"
+                  fontIcon="settings"
+                ></mat-icon>
+                <p>Configuracion</p>
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                ><mat-icon
+                  aria-hidden="false"
+                  aria-label="theme-icon"
+                  fontIcon="palette"
+                ></mat-icon>
+                <p>Cambiar Tema</p>
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                ><mat-icon
+                  aria-hidden="false"
+                  aria-label="logout-icon"
+                  fontIcon="exit_to_app"
+                ></mat-icon>
+                <p>Cerrar Sesión</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+        } @if (!modalOpen) {
+        <button
+          class="btn-config"
+          (click)="abrirModal()"
+          [class.btn-active]="modalOpen"
+        >
+          <mat-icon
+            aria-hidden="false"
+            aria-label="settings-icon"
+            fontIcon="settings"
+          ></mat-icon>
+          <p>Configuración</p>
+        </button>
+        }
+      </li>
+    </div>
+  </ul>
+</nav>

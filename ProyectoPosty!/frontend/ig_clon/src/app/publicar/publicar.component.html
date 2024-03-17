@@ -1,0 +1,10 @@
+@if (isPosting) {
+<app-publicar-modal (cerrar)="cerrarPosting()"></app-publicar-modal>
+} @if(!isPosting){
+<div class="post-it">
+  <h2>No tengas miedo! comparte tus recuerdos</h2>
+  <div style="display: flex; justify-content: center;">
+    <button (click)="abrirPosting()">Publicar</button>
+  </div>
+</div>
+}
