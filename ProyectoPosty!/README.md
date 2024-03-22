@@ -23,9 +23,9 @@ ALTER USER postgres WITH PASSWORD 'postgres';
 
 **Lider de Equipo** : jnunez2301
 
-**Capa de Presentación (Frontend)** : Gladys
+**Capa de Presentación (Frontend)** : jnunez2301, DanielGuerreroRa
 
-**Capa Controlador / Servicios | Repositorio (Backend)** : JoaoCzz, stevenjaramillo, jnunez2301
+**Capa Controlador / Servicios | Repositorio (Backend)** : JoaoCzz, jnunez2301
 
 **Gestión de Base de Datos (Capa Modelo)** : DanielGuerreroRa
 
@@ -42,6 +42,4 @@ Las rutas deben estar hechas de esta manera.
 
 * [DanielGuerreroRa](https://github.com/DanielGuerreroRa)
 * [JoaoCzz](https://github.com/JoaoCzz)
-* [stevenjaramillo](https://github.com/stevenjaramillo)
-* [GladysAlvarado](https://github.com/GladysAlvarado)
 * [jnunez2301](https://github.com/jnunez2301)
